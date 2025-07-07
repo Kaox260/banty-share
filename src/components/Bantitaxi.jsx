@@ -15,6 +15,8 @@ const Bantitaxi = () => {
   const [distance, setDistance] = useState(null);
   const [price, setPrice] = useState(null);
 
+  const apiKey = process.env.REACT_APP_API_KEY;
+
   // Gestionnaire de sélection des passagers
   const handleSelectPassengers = (number) => {
     setFormData({ ...formData, passengers: number });
@@ -62,7 +64,7 @@ const Bantitaxi = () => {
 
   return (
     <div className="bantitaxi-container">
-      <LoadScript googleMapsApiKey="AIzaSyAlT5wHT649ARpF9dkxTwOV6X9L3yNWaxs" libraries={['places']}>
+      <LoadScript googleMapsApiKey={apiKey} libraries={['places']}>
         {/* Champ d'adresse de départ */}
         <div className="address-input">
           <Autocomplete
